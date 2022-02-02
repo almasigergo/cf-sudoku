@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+//react
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-function App() {
+//pages
+import Home from './pages/Home';
+import Sudoku from './pages/Sudoku';
+import Subscribe from './pages/Subscribe';
+
+//components
+import Header from './components/Header';
+import Footer from './components/Footer';
+
+//styles
+import './assets/css/style.min.css';
+
+
+function App()
+{
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <div id="main">
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/sudoku" element={<Sudoku />} />
+          <Route exact path="/subscribe" element={<Subscribe />} />
+        </Routes>
+      </div>
+      <Footer />
+    </>
+    
   );
 }
 

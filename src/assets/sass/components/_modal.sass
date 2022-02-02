@@ -1,0 +1,122 @@
+@use 'variables/' as *
+
+.modal-close-layer
+    content: ''
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    display: flex
+    background: rgba(0,0,0,.7)
+    cursor: pointer
+
+.modal-close
+        @include displayFlex
+
+        position: absolute
+        top: 2rem
+        right: 2rem
+        height: 2.5rem
+        aspect-ratio: 1/1
+        //border-radius: .25rem
+        border-radius: 50%
+        border: .125rem solid color(blue,300)
+        font-size: 0
+        background: none
+        transition: all .25s ease-in-out
+        cursor: pointer
+
+        &:hover
+            background: color(blue,100)
+            border-color: color(blue,400)
+
+            img
+                opacity: .999
+
+        img
+            aspect-ratio: 1/1
+            height: 1.25rem
+            transition: all .25s ease-in-out
+            opacity: .7
+
+
+.modal-container
+    @include displayFlex
+
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: 11
+    padding: 1.25rem
+
+    opacity: 0
+    visibility: hidden
+    transition: all .4s ease-in-out
+
+    &.shown
+        opacity: 1
+        visibility: visible
+
+    .modal
+        @include displayFlex
+
+        gap: 2rem
+
+        position: relative
+        flex-direction: column
+        text-align: center
+        background: color(white)
+        border-radius: 1.25rem
+        padding: 5rem 2.5rem 3rem
+        transform: translateY(3rem)
+        transition: all .4s ease-in-out
+        max-width: fit-content
+        width: 100%
+        margin: 1rem
+
+        h3
+            margin: 0
+            max-width: 21ch
+
+            strong
+                color: color(blue,500)
+
+        p
+            margin: 0
+            color: color(blue,700)
+            max-width: 24ch
+
+            strong
+                font-weight: 600
+                color: color(blue,500)
+
+        &.error
+            //color: red
+
+            p
+                //color: red
+
+            .modal-icon
+                background: color(red,100)
+
+        &.success
+            //color: green
+
+            .modal-icon
+                background: color(green,100)
+
+        .modal-icon
+            @include displayFlex
+
+            height: 4rem
+            width: 4rem
+            border-radius: 50%
+
+        .btn
+            width: 100%
+
+#message-container
+    z-index: 12

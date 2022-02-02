@@ -1,0 +1,126 @@
+//include assets
+@use 'variables/' as *
+@use 'components/' as *
+
+//page specific styling
+.plan-container
+    @include displayFlex
+
+    gap: 4rem
+    margin: 7rem auto 4rem
+
+    @media (max-width: 47rem)
+        display: grid
+        grid-template-columns: 1fr
+        margin: 2rem auto 0
+        gap: 2.5rem
+
+    .plan-box
+        position: relative
+        padding: 3rem 2rem 2rem
+        border-radius: 1.25rem
+        box-sizing: border-box
+        border: .125rem solid color(blue,400)
+
+        &.popular
+            border: .125rem solid color(blue,500)
+            //padding: 4rem 2.5rem 2rem
+            box-shadow: 0 1.25rem 3.75rem -1.25rem rgb(104 52 255 / 16%)
+            transform: scale(1.15)
+
+            @media (max-width: 47rem)
+                transform: scale(1)
+
+            .popular-label
+                opacity: 1
+
+    .plan-box-icon
+        @include displayFlex
+
+        height: 4rem
+        aspect-ratio: 1/1
+        border-radius: 50%
+        margin-bottom: 2rem
+
+        &.easy
+            background: #dcfce7
+
+        &.medium
+            background: #fff3d7
+
+        &.hard
+            background: #fcdede
+
+
+    .popular-label
+        @include displayFlex
+        
+        position: absolute
+        top: -.1rem
+        left: 0
+        right: 0
+        opacity: 0
+
+        span
+            @include displayFlex
+
+            padding: .3125rem 1.25rem
+            background: color(blue,500)
+            border-radius: 0 0 .5rem .5rem
+            font-size: .75rem
+            font-weight: 600
+            text-transform: uppercase
+            letter-spacing: .15rem
+            color: #fff
+        
+    .label
+        font-size: .75rem
+        font-weight: 600
+        text-transform: uppercase
+        letter-spacing: .15rem
+        color: color(blue,500)
+
+    h3
+        margin: 0
+        font-size: 1.25rem
+        font-weight: 600
+
+    p:not(.no-payment)
+        color: color(blue,700)
+        margin: 1rem 0 2rem
+        max-width: 17ch
+
+    ul
+        display: flex
+        flex-direction: column
+        gap: 1.25rem
+        padding-left: .5rem
+        margin: 0 0 2.5rem
+
+        li
+            list-stlye: none
+            display: flex
+            align-items: flex-start
+
+            img
+                margin-right: .5rem
+
+            span
+                color: color(blue,700)
+                font-size: .8125rem
+                max-width: 20ch
+
+            &.inactive
+                opacity: .5
+
+                img
+                    opacity: .5
+
+                span
+                    text-decoration: line-through
+
+.no-payment
+    color: color(blue,700)
+    font-size: .8125rem
+    padding-top: .625rem
+    text-align: center

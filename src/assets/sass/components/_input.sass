@@ -1,0 +1,45 @@
+@use 'variables/' as *
+
+.input
+    -moz-appearance: textfield
+    display: flex
+    min-height: 2.875rem
+    width: 100%
+    height: 100%
+    min-width: 15rem
+    padding: 0 .625rem
+    border: .125rem solid rgb(226 232 240/var(--cf-border-opacity))
+    border-radius: .375rem
+    background: none
+    //background: color(blue,100)
+    cursor: pointer
+    border-color: color(blue,300)
+    transition: all .25s ease-in-out
+    font-family: font(poppins)
+    box-sizing: border-box
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button
+        -webkit-appearance: none
+
+    &:not(:placeholder-shown):not(:focus)
+        //border-color: hsl(252 74% 84% / 1)
+        color: color(blue,500)
+
+    &.sudoku-pre-filled
+        background: color(blue,100)
+        border-color: color(blue,600) !important
+        //background: none
+
+    &:hover,
+    &:focus
+        background: color(blue,100)
+        //color: hsl(252 74% 42% / 1)
+
+    &:hover
+        border-color: hsl(252 74% 84% / 1)
+        color: color(blue,500)
+
+    &:focus
+        border-color: color(black)
+        color: color(black)

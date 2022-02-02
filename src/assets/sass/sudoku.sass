@@ -1,0 +1,85 @@
+//include assets
+@use 'variables/' as *
+@use 'components/' as *
+
+//page specific styling
+.sudoku-container
+    @include displayFlex
+
+    flex-direction: column
+    gap: 2rem
+
+.sudoku-grid
+    @include displayGrid
+
+    > :nth-child(3n)
+        margin-right: 0.25rem
+    
+    >:nth-child(27n)
+        margin-bottom: 0.25rem
+
+.sudoku-grid-main
+    @include displayGrid
+
+    gap: 0.25rem
+    
+.sudoku-grid-sub
+    height: 2.25rem
+    aspect-ratio: 1/1
+
+    input
+        @include displayFlex
+
+        -moz-appearance: textfield
+
+        width: 100%
+        height: 100%
+        text-align: center
+        border: .125rem solid rgb(226 232 240/var(--cf-border-opacity))
+        border-radius: .375rem
+        background: none
+        //background: color(blue,100)
+        cursor: pointer
+        border-color: color(blue,300)
+        transition: all .25s ease-in-out
+        font-family: font(poppins)
+        font-weight: 600
+        box-sizing: border-box
+        font-size: .9375rem
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button
+            -webkit-appearance: none
+
+        &:not(:placeholder-shown):not(:focus)
+            //border-color: hsl(252 74% 84% / 1)
+            color: color(blue,500)
+
+        &.sudoku-pre-filled
+            background: color(blue,100)
+            border-color: color(blue,600) !important
+            //background: none
+
+        &:hover,
+        &:focus
+            transform: scale(1.1)
+            background: color(blue,100)
+            //color: hsl(252 74% 42% / 1)
+
+        &:hover
+            border-color: hsl(252 74% 84% / 1)
+            color: color(blue,500)
+
+        &:focus
+            border-color: color(black)
+            color: color(black)
+        
+.btn-container
+    @include displayFlex
+
+    flex-wrap: wrap
+    max-width: 23rem
+    gap: 1rem
+
+    > *
+        flex: 1 0 100%

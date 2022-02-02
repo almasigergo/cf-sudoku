@@ -1,0 +1,62 @@
+//include assets
+@use 'variables/' as *
+@use 'components/' as *
+
+:root
+    --cf-border-opacity: 1
+
+body,
+*
+    font-family: font(poppins)
+
+body
+    scroll-padding-top: 5rem
+
+a
+    text-decoration: none
+
+#root
+    @include displayFlex
+
+    gap: 4rem
+
+    flex-direction: column
+    justify-content: stretch
+
+    min-height: 100vh
+
+    @media (max-width: 47rem)
+        gap: 2rem
+
+#main
+    margin: 0 auto
+    padding: 0 1.25rem
+
+.page-title
+    margin: 0 auto
+    font-size: 2rem
+    font-weight: 600
+    text-transform: uppercase
+    letter-spacing: .175rem
+    text-align: center
+    max-width: 15ch
+    line-height: 1.25
+
+.page-subtitle
+    color: color(blue,700)
+    margin: 2rem auto 4rem
+    text-align: center
+    max-width: 30ch
+    line-height: 1.5
+
+    @media (max-width: 47rem)
+        margin: 2rem auto 2.5rem
+
+.h3
+    font-size: 1.25rem
+    font-weight: 600
+
+.h4
+    margin: 4rem 0 0
+    font-weight: 500
+    color: color(blue,500)

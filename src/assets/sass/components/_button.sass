@@ -1,0 +1,52 @@
+@use 'variables/' as *
+
+.btn
+    @include displayFlex
+
+    min-height: 2.875rem
+    min-width: 15rem
+    border: none
+    border-radius: .625rem
+    padding: .625rem 1.875rem
+    font-size: .9rem
+    font-weight: 600
+    transition: all .25s ease-in-out
+    cursor: pointer
+
+    &.no-min-width
+        min-width: 0
+
+    &.width-100
+        width: 100%
+
+    &:hover
+        opacity: .8
+        transform: scale(1.05)
+
+    &:active
+        opacity: .6
+        transform: scale(.95)
+
+    &.btn-primary
+        background: color(blue,500)
+        color: color(white)
+    
+    &.btn-secondary
+        background: color(blue,200)
+        color: color(blue,500)
+
+        &:hover
+            background: color(blue,300)
+
+    &.btn-tertiary
+        //background: color(blue,100)
+        background: none
+        color: color(blue,500)
+
+        &:hover
+            background: color(blue,200)
+
+        svg, img
+            height: 1.25rem
+            width: 1.25rem
+            margin-right: 0.5rem

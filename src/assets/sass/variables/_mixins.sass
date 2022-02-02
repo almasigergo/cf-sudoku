@@ -1,0 +1,22 @@
+@use 'colors' as *
+@use 'fonts' as *
+
+@function color($default, $shade: default)
+    $color: map-get(map-get($colors, $default), $shade)
+    @return $color
+
+@function font($default, $shade: default)
+    $font: map-get(map-get($fonts, $default), $shade)
+    @return $font
+
+@mixin displayGrid()
+    display: grid
+    grid-template-columns: repeat(9, min-content)
+    grid-template-rows: repeat(9, min-content)
+    gap: 0.25rem
+    justify-content: center
+
+@mixin displayFlex()
+    display: flex
+    justify-content: center
+    align-items: center

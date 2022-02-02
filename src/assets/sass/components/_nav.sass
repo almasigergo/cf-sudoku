@@ -1,0 +1,65 @@
+@use 'variables/' as *
+
+nav
+    @include displayFlex
+
+    position: sticky
+    gap: 2rem
+    min-height: 4rem
+    top: 0
+    width: 100%
+    background: hsla(0,0%,100%,.8)
+    z-index: 10
+    backdrop-filter: blur(10px) saturate(170%)
+
+    @media (max-width: 47rem)
+        padding: .625rem
+        gap: .625rem
+
+    a
+        display: flex
+        padding: .625rem 1.25rem
+        text-decoration: none
+        color: color(blue,600)
+        position: relative
+        transition: all .25s ease-in-out
+        text-align: center
+
+        &.active
+            color: color(blue,500)
+            font-weight: 500
+
+            &::after
+                opacity: .999
+
+        &::before
+            content: ''
+            display: block
+            position: absolute
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            background: color(blue,100)
+            z-index: -1
+            border-radius: .625rem
+            transform: scale(0)
+            transition: all .25s ease-in-out
+
+        &::after
+            content: ''
+            position: absolute
+            bottom: .46875rem
+            left: 1.25rem
+            right: 1.25rem
+            border-bottom: .125rem solid
+            opacity: 0
+            transition: all .25s ease-in-out
+
+        &:hover
+            color: color(blue,500)
+
+            &::before
+                transform: scale(1)
+
+        
